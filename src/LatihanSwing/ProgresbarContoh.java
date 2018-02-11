@@ -20,11 +20,12 @@ public class ProgresbarContoh {
         ProgresbarContoh swingControlDemo = new ProgresbarContoh();
         swingControlDemo.showProgresBar();
     }
+
     /*adad
     asadad
     adadadsfds fsdsfds
     sfdsfdsfdsf fdsfdsfds*/
-    
+
     private void prepareGUI() {
         mainFrame = new JFrame("Java Swing Examples");
         mainFrame.setSize(400, 400);
@@ -62,15 +63,16 @@ public class ProgresbarContoh {
     private Task task;
     private JButton startButton;
     private JTextArea outputTextArea;
-    private void showProgresBar(){
+
+    private void showProgresBar() {
         headerLabel.setText("Control in action Progres Bar");
         progressBar = new JProgressBar(0, 100);
         progressBar.setValue(0);
-        
+
         startButton = new JButton("Start");
         outputTextArea = new JTextArea(" ", 5, 18);
         JScrollPane scrollPane = new JScrollPane(outputTextArea);
-        
+
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -83,31 +85,30 @@ public class ProgresbarContoh {
         controlPanel.add(scrollPane);
         mainFrame.setVisible(true);
     }
-    private class Task extends Thread{
-        public Task(){
-        
-    }
-        public void run(){
-            for (int i = 0; i <=100; i++) {
-                final int progres =i;
+
+    private class Task extends Thread {
+
+        public Task() {
+
+        }
+
+        public void run() {
+            for (int i = 0; i <= 100; i++) {
+                final int progres = i;
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
                         progressBar.setValue(progres);
-                        outputTextArea.setText(outputTextArea.getText()+ String.format("Complete Task %d%% of task \n", progres));
+                        outputTextArea.setText(outputTextArea.getText() + String.format("Complete Task %d%% of task \n", progres));
                     }
                 });
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
                 }
-                
-                
+
             }
         }
     }
-    
-    
 
-  
 }

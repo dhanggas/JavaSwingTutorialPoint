@@ -1,3 +1,5 @@
+package LatihanSwing;
+
 
 import java.awt.*;
 import java.awt.event.*;
