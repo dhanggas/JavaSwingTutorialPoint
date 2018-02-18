@@ -46,27 +46,32 @@ public class KeyListener_Contoh {
       headerLabel.setText("Listener in action: KeyListener");      
       textField  = new JTextField(10);
       textField.addKeyListener(new CustomKeyListener());
-      JButton okButton = new JButton("OK");
-      
+//      JButton okButton = new JButton("OK");
+//      
 //      okButton.addActionListener(new ActionListener() {
 //         public void actionPerformed(ActionEvent e) {
 //            statusLabel.setText("Entered text: " + textField.getText());                
 //         }
 //      });
       controlPanel.add(textField);
-      controlPanel.add(okButton);    
+//      controlPanel.add(okButton);    
       mainFrame.setVisible(true);  
    }
    class CustomKeyListener implements KeyListener{
+      @Override
       public void keyTyped(KeyEvent e) {
+//          if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+//              statusLabel.setText(textField.getText());
+//          }
       }
+      @Override
       public void keyPressed(KeyEvent e) {
-          if (e.getKeyCode()==KeyEvent.VK_ENTER) {
-              statusLabel.setText(textField.getText());
-          }
+          
          
       }
+      @Override
       public void keyReleased(KeyEvent e) {
+          statusLabel.setText(textField.getText());
       }   
    }
 }
